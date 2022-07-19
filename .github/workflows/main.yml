@@ -24,5 +24,9 @@ jobs:
         with:
           path: ${{ env.CACHE_PATHS }}
           key: ${{ github.job }}-${{ env.CACHE_VERSION }}
+          
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+        
       - name: build msvc 2019 16
         run: bash ./scripts/build.sh
