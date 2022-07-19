@@ -21,5 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
+        with:
+          path: ${{ env.CACHE_PATHS }}
+          key: ${{ github.job }}-${{ env.CACHE_VERSION }}
       - name: build msvc 2019 16
         run: bash ./scripts/build.sh
