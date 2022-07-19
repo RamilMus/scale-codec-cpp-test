@@ -41,7 +41,7 @@
 # Projects:
 #     * https://github.com/hunter-packages/gate/
 #     * https://github.com/ruslo/hunter
-CXXFLAGS="-Wno-error=deprecated-copy" cmake CMakeLists.txt
+set(CXXFLAGS="-Wno-error=deprecated-copy" cmake CMakeLists.txt)
 
 option(HUNTER_ENABLED "Enable Hunter package manager support" ON)
 
