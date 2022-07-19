@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ '*' ]
+  pull_request:
+
+env:
+  BUILD_DIR: build
+  CTEST_OUTPUT_ON_FAILURE: 1
+  GITHUB_HUNTER_USERNAME: ${{ secrets.HUNTER_USERNAME }}
+  GITHUB_HUNTER_TOKEN: ${{ secrets.HUNTER_TOKEN }}
+  CACHE_VERSION: v01
+  CACHE_PATHS: |
+    ~/.ccache
+    ~/.hunter
+jobs:
+  Windows_MSVC:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.CACHE_PATHS }}
+          key: ${{ github.job }}-${{ env.CACHE_VERSION }}
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+      - name: build msvc 2019 16
+        run: bash ./scripts/build.sh
