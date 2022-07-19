@@ -27,6 +27,8 @@ jobs:
           
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
-        
+        with:
+          vs-version: '[16.4,16.5)'
+          
       - name: build msvc 2019 16
         run: bash ./scripts/build.sh
