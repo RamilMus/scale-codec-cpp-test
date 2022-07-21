@@ -21,4 +21,4 @@ pwd
 mkdir build && cd build
 pwd
 cmake ..
-cmake --build . --target "${BUILD_TARGET}
+cmake --build . --target "${BUILD_TARGET}"
