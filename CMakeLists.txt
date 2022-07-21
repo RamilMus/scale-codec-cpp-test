@@ -32,7 +32,7 @@ add_subdirectory(src)
 
 
 enable_testing()
-add_subdirectory(test ${CMAKE_BINARY_DIR}/tests_bin
+add_subdirectory(test ${CMAKE_BINARY_DIR}/tests_bin)
 
 ###############################################################################
 #   INSTALLATION
