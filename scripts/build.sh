@@ -1,8 +1,7 @@
 #!/bin/bash -xe
 
-git submodule update --init
-
 mkdir build && cd build
-
 cmake ..
-cmake --build . --target test
+ctest -C Debug
+echo "test"
+cmake --build .
